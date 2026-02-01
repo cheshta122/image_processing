@@ -17,3 +17,13 @@ def unsharp_mask(image):
     gaussian = cv2.GaussianBlur(image, (9, 9), 10)
     sharp = cv2.addWeighted(image, 1.5, gaussian, -0.5, 0)
     return sharp
+
+def denoise(image):
+    raise NotImplementedError
+
+def enhance_image(image):
+    image = denoise(image)
+    image = clahe_enhancement(image)
+    image = gamma_correction(image, 1.1)
+    image = unsharp_mask(image)
+    return image
