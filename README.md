@@ -32,16 +32,10 @@ PSNR (Peak Signal-to-Noise Ratio)
 SSIM (Structural Similarity Index)
 
 Side-by-side visual comparison of original, noisy, denoised, and enhanced images
+<img width="744" height="233" alt="{4ACBEE1C-3608-4846-944C-BA04086AFCB3}" src="https://github.com/user-attachments/assets/6fb22422-df3c-42ac-b4ff-8890836a719b" />
 
-Project Structure
-IDP_PROJECT/
-│
-├── main.py                # Main pipeline (image selection, processing, display)
-├── wavelet_denoise.py     # Wavelet-based denoising implementation
-├── enhancement.py         # Image enhancement techniques
-├── metrics.py             # PSNR and SSIM calculation
-├── README.md              # Project documentation
-└── requirements.txt       # Required Python libraries
+
+
 Technologies Used
 
 Python
