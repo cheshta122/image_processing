@@ -1,99 +1,50 @@
-Image Processing Project (Python)
- Overview
+Image Denoising and Enhancement System
+Overview
 
-This project is a Python-based Image Processing system that focuses on image enhancement, denoising, and quality evaluation.
-It applies wavelet-based denoising techniques, enhancement methods, and calculates image quality metrics to analyze performance.
+This project implements an image denoising and enhancement pipeline using classical image processing techniques. The system focuses on reducing noise, improving contrast, adjusting brightness, sharpening edges, and evaluating image quality using standard metrics.
 
-The project is modular, cleanly structured, and suitable for academic submissions, internships, and portfolio showcase.
+The application allows users to select an image through a graphical file browser, processes the image using multiple enhancement techniques, computes PSNR and SSIM metrics, and displays visual comparisons of all results.
 
-Objectives
+This project is designed for academic use (IDP / mini project) and demonstrates practical implementation of image processing concepts.
 
-Improve image quality using enhancement techniques
+Features
 
-Remove noise from images using Wavelet Transform
+Interactive image selection using a file dialog
 
-Evaluate results using standard image quality metrics
+Wavelet-based denoising using Discrete Wavelet Transform
 
-Maintain a clean and modular Python codebase
+Non-Local Means (NLM) denoising for refined noise removal
 
- Project Structure
-image_processing/
-│
-├── images/                 # Input and output images
-│
-├── enhancement.py          # Image enhancement techniques
-├── wavelet_denoise.py      # Wavelet-based image denoising
-├── metrics.py              # Image quality evaluation metrics
-├── main.py                 # Main execution file
-│
-├── __pycache__/            # Python cache files (auto-generated)
-└── README.md               # Project documentation
- Module-wise Explanation
-🔹 main.py
+Multiple enhancement techniques:
 
-Entry point of the project
+Histogram Equalization
 
-Loads input image
+CLAHE (Contrast Limited Adaptive Histogram Equalization)
 
-Calls denoising and enhancement functions
+Gamma Correction
 
-Computes evaluation metrics
+Unsharp Masking (Sharpening)
 
-Displays or saves output images
-
-Acts as the controller that connects all modules.
-
-🔹 enhancement.py
-
-Image Enhancement Module
-
-Implements techniques such as:
-
-Contrast enhancement
-
-Brightness adjustment
-
-Histogram-based improvements
-
- Used to improve visual clarity and sharpness of images.
-
-🔹 wavelet_denoise.py
-
-Wavelet-based Image Denoising
-
-Uses Discrete Wavelet Transform (DWT)
-
-Removes noise while preserving edges
-
-Reconstructs clean image after thresholding
-
- Highly effective for reducing Gaussian and high-frequency noise.
-
-🔹 metrics.py
-
-Image Quality Evaluation
-
-Calculates standard metrics like:
+Image quality evaluation using:
 
 PSNR (Peak Signal-to-Noise Ratio)
 
-MSE (Mean Squared Error)
+SSIM (Structural Similarity Index)
 
-SSIM (if implemented)
+Side-by-side visual comparison of original, noisy, denoised, and enhanced images
 
- Helps in quantitative comparison of original vs processed images.
-
-🔹 images/
-
-Stores input images
-
-Saves processed output images
-
-Helps in testing different samples
-
+Project Structure
+IDP_PROJECT/
+│
+├── main.py                # Main pipeline (image selection, processing, display)
+├── wavelet_denoise.py     # Wavelet-based denoising implementation
+├── enhancement.py         # Image enhancement techniques
+├── metrics.py             # PSNR and SSIM calculation
+├── README.md              # Project documentation
+└── requirements.txt       # Required Python libraries
 Technologies Used
 
-Python 3
+Python
 
 OpenCV
 
@@ -101,50 +52,126 @@ NumPy
 
 PyWavelets
 
+scikit-image
+
 Matplotlib
 
- How to Run the Project
-1️⃣ Clone the Repository
-git clone https://github.com/cheshta122/image_processing.git
-cd image_processing
-2️⃣ Install Dependencies
-pip install numpy opencv-python pywavelets matplotlib
-3️⃣ Run the Project
+Tkinter
+
+Methodology
+1. Image Input
+
+The user selects an image using a graphical file browser. The image is loaded in grayscale format for consistent processing.
+
+2. Denoising
+
+Wavelet Denoising:
+
+The image is decomposed into frequency components using Discrete Wavelet Transform.
+
+Noise is estimated using Median Absolute Deviation (MAD).
+
+Soft thresholding is applied to suppress noise while preserving edges.
+
+Non-Local Means (NLM) Denoising:
+
+Further refines the image by comparing pixel neighborhoods to remove residual noise.
+
+3. Image Enhancement
+
+After denoising, multiple enhancement techniques are applied:
+
+Histogram Equalization: Improves global contrast.
+
+CLAHE: Enhances local contrast while avoiding over-amplification.
+
+Gamma Correction: Adjusts brightness and intensity distribution.
+
+Unsharp Masking: Sharpens edges and fine details.
+
+4. Quality Evaluation
+
+PSNR evaluates the noise reduction performance quantitatively.
+
+SSIM measures perceptual similarity by comparing structural information.
+
+5. Visualization
+
+All intermediate and final images are displayed using Matplotlib for visual comparison.
+
+Image Quality Metrics
+PSNR (Peak Signal-to-Noise Ratio)
+
+Measures the ratio between the maximum possible pixel value and the noise.
+
+Higher PSNR indicates better image quality.
+
+SSIM (Structural Similarity Index)
+
+Measures similarity based on luminance, contrast, and structure.
+
+Values range from -1 to 1, where higher values indicate greater similarity.
+
+How to Run the Project
+1. Install Dependencies
+
+Create a virtual environment (recommended) and install required libraries:
+
+pip install opencv-python numpy pywavelets scikit-image matplotlib
+2. Run the Application
 python main.py
-Output
+3. Select an Image
+
+A file dialog will appear.
+
+Choose any grayscale or color image (JPG, PNG, BMP).
+
+The system will automatically process and display results.
+
+Input and Output
+
+Input:
+
+Grayscale or color image (automatically converted)
+
+Output:
 
 Denoised image
 
-Enhanced image
+Enhanced images using different techniques
 
-Quality metrics (PSNR, MSE, etc.)
+PSNR and SSIM values
 
-Visual comparison between original and processed images
+Visual comparison of all results
 
 Applications
 
 Medical image preprocessing
 
-Satellite and aerial image analysis
+Satellite and remote sensing images
 
-Low-light image improvement
+Low-light image enhancement
 
-Academic research and learning
+Academic demonstrations of image processing techniques
 
-Key Highlights
+Limitations
 
-✔ Modular and readable code
-✔ Wavelet-based denoising
-✔ Real-world image processing techniques
-✔ Beginner + intermediate friendly
+Designed primarily for grayscale images
 
+Performance may slow down for very high-resolution images
 
-Future Improvements
+Classical methods used (no deep learning)
 
-Add GUI using Tkinter or Streamlit
+Future Enhancements
 
-Support for real-time image processing
+Support for color image processing
 
-Extend metrics (SSIM, RMSE)
+GPU acceleration
 
-Add batch image processing
+Integration of deep learning-based denoising
+
+Real-time image enhancement
+
+Conclusion
+
+This project demonstrates a complete image processing pipeline that combines denoising, enhancement, evaluation, and visualization. It effectively balances noise reduction and detail preservation, making it suitable for academic and experimental applications.
