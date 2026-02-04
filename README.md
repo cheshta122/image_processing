@@ -169,3 +169,174 @@ Real-time image enhancement
 Conclusion
 
 This project demonstrates a complete image processing pipeline that combines denoising, enhancement, evaluation, and visualization. It effectively balances noise reduction and detail preservation, making it suitable for academic and experimental applications.
+
+# Image Processing using Wavelet Denoising
+
+
+## Overview
+
+
+This repository implements an image processing pipeline focused on
+reducing noise and improving image quality using wavelet-based
+denoising techniques.
+
+
+The project is designed to read input images, apply noise reduction,
+enhance visual quality, and evaluate the results using standard
+image quality metrics.
+
+
+This repository is also structured to be easily understood by
+automated systems such as Retrieval-Augmented Generation (RAG)
+based chatbots.
+
+
+---
+
+
+## Purpose of the Project
+
+
+The main objective of this project is to:
+
+
+- Remove noise from images while preserving important visual details
+- Improve the overall clarity and appearance of images
+- Evaluate image quality before and after processing
+
+
+Wavelet-based denoising is used because it allows multi-resolution
+analysis, making it effective at separating noise from useful image
+information.
+
+
+---
+
+
+## How the Project Works
+
+
+The image processing workflow follows these steps:
+
+
+1. Input images are loaded from the `images` directory.
+2. Noise is reduced using wavelet-based denoising techniques.
+3. Image enhancement methods are applied to improve visual quality.
+4. Image quality is evaluated using PSNR and SSIM metrics.
+
+
+Each step of the pipeline is implemented in a separate module for
+clarity and modularity.
+
+
+---
+
+
+## Repository Structure
+
+
+
+image_processing/
+│
+├── images/ # Input images for processing
+├── main.py # Entry point for executing the pipeline
+├── wavelet_denoise.py # Wavelet-based noise reduction logic
+├── enhancement.py # Image enhancement techniques
+├── metrics.py # Image quality evaluation metrics
+└── README.md # Project documentation
+
+
+
+---
+
+
+## Description of Key Files
+
+
+### main.py
+Acts as the entry point of the project.  
+It connects all modules and executes the complete image processing
+pipeline from loading images to evaluating results.
+
+
+### wavelet_denoise.py
+Implements wavelet-based denoising to remove noise from images while
+preserving edges and important details.
+
+
+### enhancement.py
+Enhances the visual quality of images after denoising by improving
+contrast, brightness, or clarity.
+
+
+### metrics.py
+Evaluates the quality of processed images using objective metrics
+such as PSNR (Peak Signal-to-Noise Ratio) and SSIM (Structural
+Similarity Index).
+
+
+---
+
+
+## Image Quality Evaluation
+
+
+The project uses the following metrics:
+
+
+- **PSNR**: Measures the difference between the original and
+  processed images. Higher values indicate better quality.
+- **SSIM**: Measures structural similarity between images, focusing
+  on perceived visual quality.
+
+
+These metrics help quantify the effectiveness of the denoising and
+enhancement steps.
+
+
+---
+
+
+## Use Cases
+
+
+This project can be used for:
+
+
+- Learning wavelet-based image denoising
+- Studying image enhancement techniques
+- Comparing image quality before and after processing
+- Demonstrating an image processing pipeline for academic or
+  practical purposes
+
+
+---
+
+
+## Example Questions for RAG-based Chatbots
+
+
+When this repository is used with a RAG-based chatbot, the following
+questions can be answered accurately:
+
+
+- What does this repository do?
+- Explain the image processing pipeline.
+- How does wavelet denoising work in this project?
+- Why is wavelet denoising used?
+- What happens after denoising?
+- How is image quality evaluated?
+- What metrics are used and why?
+- What is the role of main.py?
+- Explain the purpose of enhancement.py.
+
+
+---
+
+
+## Notes
+
+
+- The code is fully functional and modular.
+- The repository is structured to support automated understanding
+  by tools that read and reason over source code and documentation.
